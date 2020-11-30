@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const AuthTemplateBlock = styled.div`
   position: absolute;
@@ -15,6 +16,13 @@ const AuthTemplateBlock = styled.div`
   align-items: center;
 `;
 const WihteBox = styled.div`
+  .logo {
+    display: block;
+    padding-bottom: 2rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.025);
   padding: 2rem;
   width: 360px;
@@ -24,7 +32,12 @@ const WihteBox = styled.div`
 function AuthTemplate({ children }) {
   return (
     <AuthTemplateBlock>
-      <WihteBox>{children}</WihteBox>
+      <WihteBox>
+        <div className="logo">
+          <Link to="/">오늘 뭐할래?</Link>
+        </div>
+        {children}
+      </WihteBox>
     </AuthTemplateBlock>
   );
 }
