@@ -1,14 +1,21 @@
 import { call, put } from "redux-saga/effects";
 import { startLoading, finishLoading } from "../stores/loading";
-
-export default function saga(type, request) {
+import { authService } from "./fbserver";
+export default function saga(type) {
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILRUE`;
 
   return function* (action) {
     yield put(startLoading(type));
     try {
-      const response = yield call(request, action.payload);
+      console.log(action.payload);
+      const response = yield call(
+        authService.createUserWithEmailAndPassword(
+          action.payload.username,
+          action.payload.password
+        )
+      );
+      console.log(response);
       yield put({
         type: SUCCESS,
         payload: response.data,

@@ -45,7 +45,6 @@ const textMap = {
 
 function AuthForm({ type, form, onChange, onSubmit }) {
   const text = textMap[type];
-  console.log(form.username);
   return (
     <AuthFormBlock>
       <h3>{text}</h3>

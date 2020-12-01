@@ -13,7 +13,9 @@ export const finishLoading = createAction(
   (requestType) => requestType
 );
 
-const init = {};
+const init = {
+  loading: true,
+};
 
 const loading = handleActions(
   {

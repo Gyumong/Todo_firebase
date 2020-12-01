@@ -36,11 +36,8 @@ export const login = createAction(LOGIN, ({ username, password }) => ({
 
 // 사가
 
-const registerSaga = saga(
-  REGISTER,
-  authService.createUserWithEmailAndPassword()
-);
-const loginSaga = saga(LOGIN, authService.signInWithEmailAndPassword());
+const registerSaga = saga(REGISTER, register);
+const loginSaga = saga(LOGIN, login);
 
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
