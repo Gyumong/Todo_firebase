@@ -16,8 +16,8 @@ export const check = createAction(CHECK);
 function* checkSaga() {
   try {
     const user = authService.currentUser;
-    console.log(user);
     yield put(CHECK);
+    console.log(user);
   } catch (e) {}
 }
 
